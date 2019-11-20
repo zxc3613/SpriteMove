@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float speed = 0;
+    [SerializeField] float startPos;
+    [SerializeField] float endPos;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(-1 * (speed * Time.deltaTime), 0, 0);
+        if (transform.position.x < endPos)
+        {
+            transform.Translate(-1 * (endPos-startPos), 0, 0);
+        }
+       
     }
 }
